@@ -1,0 +1,68 @@
+.config {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-color: rgba(white, 0.2);
+
+    > * {
+        border-bottom: 1px solid;
+        padding-bottom: 15px;
+    }
+
+    &__seo {
+        h3 button {
+            margin-left: 20px;
+        }
+
+        > * {
+            display: block;
+            margin-top:5px;
+            width: 95%;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+
+        > * {
+            flex-basis: 50%;
+            max-width: 400px;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            height: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+    }
+
+    &__preview {
+        padding: 0px 20px 10px;
+    }
+
+    textarea,
+    input {
+        display: none;
+    }
+
+    &_editing {
+        textarea,
+        input,
+        button {
+            display: inline-block;
+        }
+        
+        .config__preview:not(:first-child) {
+            padding-top: 30px;
+        }
+    }
+}

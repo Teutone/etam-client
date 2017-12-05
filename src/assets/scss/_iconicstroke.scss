@@ -1,0 +1,11 @@
+@import url(http://weloveiconfonts.com/api/?family=iconicfill|iconicstroke);
+
+/* iconicfill */
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+}
+
+/* iconicstroke */
+[class*="iconicstroke-"]:before {
+  font-family: 'IconicStroke', sans-serif;
+}

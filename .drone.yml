@@ -1,0 +1,25 @@
+pipeline:
+  frontend:
+    group: build
+    image: node:8
+    commands:
+      - npm install
+      - npm run lint
+      # - npm run test
+      - npm run build
+  publish:
+    image: appleboy/drone-scp
+    repo: etam/lnb-client
+    host: eleventhirty.am
+    username: lnb
+    key: ${LNB_SSH_KEY}
+    secrets: [ lnb_ssh_key ]
+    source:
+      - dist
+    target:
+      - /home/lnb/lnb-server/static/eleventhirty.am
+    rm: true
+    when:
+      event: tag
+      branch: master
+      status: success

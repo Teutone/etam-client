@@ -1,0 +1,104 @@
+button,
+select {
+    text-transform: uppercase;
+    
+    &:active {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+button,
+select,
+input {
+    height: 30px;
+}
+
+select,
+input,
+textarea {
+    border: 0;
+    border-bottom: 3px solid rgba(white, 0.4);
+    background: transparent;
+    color: rgba(white, 0.4);
+    padding: 0 12px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+
+    transition: border-color 0.1s ease-out, color 0.1s ease-out, background 0.1s ease-out;
+
+    &:hover,
+    &:focus,
+    &.active {
+        color: white;
+        border-color: white;
+    }
+}
+
+button {
+    border: 0;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 0px;
+}
+
+a:hover,
+button:hover {
+    color: white;
+    border-bottom-color: white;
+}
+
+
+button + button:not(.icon-button) {
+    margin-left: 10px;
+}
+
+.icon-button {
+    border: 0;
+    border-radius: 3px;
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(white, 1);
+
+    span {
+        display: block;
+        height: 15px;
+        width: 15px;
+    }
+    
+    &:hover {
+        background-color: rgba(black, 0.3);
+    }
+
+    &.active {
+        background-color: rgba(black, 0.4);
+    }
+}
+
+option {
+    color: black;
+    background-color: white;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+    
+    > * {
+        margin-left: 10px;
+    }
+
+    &__left {
+        margin-left: 0px;
+        margin-right: auto;
+    }
+}

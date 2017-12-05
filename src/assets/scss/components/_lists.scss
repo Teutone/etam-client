@@ -1,0 +1,99 @@
+.tracklist,
+.userlist {
+    position: relative;
+    height: 100%;
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        input,
+        select,
+        button {
+            border-width: 2px;
+            flex-grow: 1;
+        }
+
+        input[type="text"] {
+            flex-basis: 100%;
+        }
+    }
+    &__list {
+        flex-grow: 1;
+        overflow-y: auto;
+        height: calc(100% - 60px);
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    &__list-item {
+        padding: 15px 15px;
+        border-bottom: 2px solid transparent;
+        border-top: 2px solid transparent;
+        transition: background 0.2s ease-out;
+    
+        &:not(:first-child):hover {
+            background-color: rgba(black, 0.1);
+            border-color: white;
+        }
+    }
+}
+
+.list {
+    margin: 7px 0px;
+    overflow-y: auto;
+    background: rgba(black, 0.2);
+    height: 0px;
+    flex-grow: 0;
+    opacity: 0;
+    padding: 0px;
+
+    transition: height 0.2s ease-out, padding 0.1s ease-out, opacity 0.2s ease-out;
+
+    &_visible {
+        height: calc(100vh - 60px);
+        flex-grow: 1;
+        flex-shrink: 1;
+        opacity: 1;
+        padding: 15px 0px;
+    }
+
+    &__list-item {
+        padding: 5px;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        font-weight: 200;
+        cursor: pointer;
+        letter-spacing: 0.3px;
+        border-bottom: 2px solid transparent;
+        border-top: 2px solid transparent;
+        transition: background 0.2s ease-out;
+
+        &_active,
+        &:hover,
+        &:focus {
+            background-color: rgba(black, 0.3);
+            border-color: white;
+        }
+
+        &:focus {
+            outline: 1px solid white;
+        }
+    }
+
+    &__episode {
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__track-details {
+        flex-grow: 1;
+
+        > div:last-child {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            color: rgba(white, 0.8);
+        }
+    }
+}

@@ -1,9 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee|Roboto:400,900');
+@import './animations';
+@import './iconicstroke';
+
+/* Resets */
 * {
     box-sizing: border-box;
 }
 
+html {
+    font-size: 100%;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-size: 16px;
+    min-height: 100vh;
+    font-size: 1rem;
 }
+
+/* General styles */
+@mixin bg() {
+    background-color: #6fb4df;
+    background-image: url(https://images.unsplash.com/photo-1428189923803-e9801d464d76?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=40e43c26d48dfcaaf80670e1639c1af7);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    
+    @include bg();
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.user-name {
+  font-weight: 200;
+}
+
+.flexxer {
+    flex-grow: 1;
+}
+
+.lnb-ap {
+    height: 100%;
+}
+
+.logo {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-size: 3em;
+    margin-top: 45px;
+    margin-bottom: 5px;
+
+    transition: font-size .2s ease-out, margin 0.2s ease-out;
+
+    &_small {
+        font-size: 1.5rem;
+        margin: -55px 0px 0px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .logo {
+        font-size: 1.5em;
+    }
+}
+
+.colored-episode {
+    display: inline-block;
+    text-align: center;
+    min-width: 40px;
+    padding: 4px 8px;
+    margin: 0px 10px 0px -4px;
+}
+
+@import './components/input-elements';
+@import './components/nav';
+@import './components/lists';
+@import './components/track';
+@import './components/forms';
+@import './components/user';
+@import './components/forms';
+@import './components/volume-bar';
+@import './components/player';
+@import './components/yt-wrap';
+@import './components/app';
+@import './components/fb-connect';
+@import './components/config';
+@import './components/login';

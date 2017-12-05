@@ -1,24 +1,37 @@
 <script>
-import LnbHeader from './components/LnbHeader';
+import LnbNav from './components/LnbNav';
 
 export default {
   name: 'app',
   components: {
-    LnbHeader,
+    LnbNav,
+  },
+  computed: {
+    isTall() {
+      return this.$route.name === 'tracks' || this.$route.name === 'users' || this.$route.name === 'config';
+    },
   },
 
-  created() {
-    document.title = 'latenight.blue';
+  mounted() {
+    setTimeout(() => document.body.classList.add('transitions-active'), 200);
   },
 };
 </script>
 
 <style src="./assets/scss/global.scss" lang="scss"></style>
-<style src="./assets/latenight.blue/scss/index.scss" lang="scss"></style>
 
 <template>
-  <main id="main">
-    <lnb-header></lnb-header>
-    <lnb-song></lnb-song>
+  <main class="app" :class="{ 'app_tall': isTall }">
+    <lnb-nav></lnb-nav>
+    <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+      <router-view></router-view>
+    </transition>
+    <svg xmlns="http://www.w3.org/2000/svg" v-show="false" version="1.1">
+      <defs>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="5"/>
+        </filter>
+      </defs>
+    </svg>
   </main>
 </template>

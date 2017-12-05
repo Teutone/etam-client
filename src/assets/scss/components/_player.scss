@@ -1,0 +1,66 @@
+.player {
+    padding: 20px 0px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Bungee", sans-serif;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__track-details {
+        margin: 30px 0px;
+
+        h2 {
+            margin: 0px;
+        }
+    }
+
+    &__about {
+        font-family: "Roboto", sans-serif;
+
+        h1, h2, h3, h4 {
+            font-family: "Bungee", sans-serif;
+        }
+
+        h4 {
+            margin-bottom: 0px;
+        }
+
+        p {
+            margin: 0px 0px 10px;
+        }
+    }
+
+    &__yt-wrap:not(.yt-wrap_hidden) {
+        margin: 20px 0px;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .player {
+        &__track-details {
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+.controls {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &__time {
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+
+    &_low {
+        margin-bottom: -70px;
+    }
+}

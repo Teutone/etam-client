@@ -1,0 +1,77 @@
+
+.volume-bar {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    transition: width .2s ease-out;
+
+    * {
+      transition: width .2s ease-out, height 0.2s ease-out, top 0.2s ease-out;
+    }
+
+    &__wrap {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &__mute-button {
+      flex-shrink: 0;
+    }
+
+    &__volume-wrap {
+      height: 24px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &__volume {
+      margin-left: 10px;
+      margin-right: 10px;
+      flex-shrink: 0;
+      display: block;
+      width: 80px;
+      height: 0px;
+      background-color: rgba(white, 0.3);
+
+      > div {
+        background-color: white;
+        height: 0px;
+        position: relative;
+
+        &:after {
+          position: absolute;
+          right: -3px;
+          top: -4.5px;
+          content: '';
+          display: block;
+          width: 0px;
+          height: 0px;
+          background-color: white;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    $en: &;
+    &:hover,
+    &.active {
+      width: 124px;
+
+      #{$en}__volume {
+        height: 4px;
+
+        > div {
+          height: 4px;
+
+          &:after {
+            height: 10px;
+            width: 10px;
+          }
+        }
+      }
+    }
+  }

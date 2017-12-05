@@ -1,0 +1,50 @@
+.app {
+    max-width: 100%;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    font-weight: normal;
+    position: relative;
+    border-right: 4px solid white;
+    transition: width 0.2s ease-out, height 0.2s ease-out;
+    padding: 50px 30px;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block; 
+        position: absolute;
+        z-index: -1;
+
+        top: -16px;
+        left: -16px;
+        height: calc(100% + 32px);
+        width: calc(100% + 32px);
+        
+        @include bg();
+    
+        -webkit-filter: url('#blur');
+        filter: url('#blur');
+        -webkit-filter: blur(5px);
+        filter: blur(5px);
+        background-size: cover;
+        // opacity: 0.5;
+    }
+
+    > * {
+        width: 100%;
+    }
+
+    &_tall {
+        height: 100vh;
+        padding-bottom: 0px;
+        width: 1200px;
+        border-right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .app {
+        padding: 5%;
+    }
+}

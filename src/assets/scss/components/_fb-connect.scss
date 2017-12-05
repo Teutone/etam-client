@@ -1,0 +1,22 @@
+.fb-connect {
+    &__error {
+
+    }
+
+    &__pages {
+
+    }
+
+    &__page-list {
+        list-style: none;
+        padding: 0px;
+    }
+
+    &__page {
+        margin-bottom: 10px;
+
+        a:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+}
