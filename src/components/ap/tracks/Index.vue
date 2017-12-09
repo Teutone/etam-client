@@ -84,7 +84,7 @@ export default {
               if (this.published) {
                 return b.episode - a.episode;
               }
-              return b.lastChangeStamp - a.lastChangeStamp;
+              return b.title - a.title;
             })),
     };
   },

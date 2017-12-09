@@ -1,6 +1,6 @@
 <script>
 import { getIdFromURL } from 'vue-youtube-embed';
-import { deleteTrack, publishTrack, state } from '../../../app';
+import { deleteTrack, publishTrack, claimTrack, state } from '../../../app';
 import { buildMeta } from '../../../utility';
 import UserName from '../../UserName';
 import YtWrap from '../../player/YtWrap';
@@ -50,6 +50,10 @@ export default {
     },
   },
   methods: {
+    claim() {
+      claimTrack(this.track.id)
+        .catch(err => console.error(err));
+    },
     remove() {
       if (this.published) {
         return;
@@ -109,7 +113,7 @@ export default {
           <button @click.prevent="preview = true" v-if="!preview">Preview</button>
           <button @click.prevent="preview = false" v-if="preview">Close Preview</button>
           <button @click.prevent="view = 'publish'" v-if="!published">Publish</button>
-          <button @click.prevent="editing = true">Edit</button>
+          <button @click.prevent="view = 'editing'">Edit</button>
           <button @click.prevent="deleting = true" v-if="!published">Delete</button>
         </div>
         <div class="track__actions" v-else>
