@@ -41,11 +41,6 @@ $toaster-padding: 15px;
         }
     }
 
-    &__type-icon {
-        font-size: 25px;
-        margin-right: 10px;
-    }
-
     &__close {
         width: 30px;
         height: 30px;
@@ -55,12 +50,13 @@ $toaster-padding: 15px;
         align-items: center;
         text-align: center;
         border-radius: 15px;
-        color: var(--secondary-8);
-        font-size: 29px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 27px;
+        margin-right: 10px;
         position: relative;
 
         &:hover {
-            color: var(--secondary);
+            color: white;
             border-bottom-color: transparent;
             transition: color 0.1s ease-out;
         }
@@ -81,11 +77,11 @@ $toaster-padding: 15px;
 
         svg {
             position: absolute;
-            margin-top: -1px;
+            margin-top: -3px;
 
             .outer {
                 fill: transparent;
-                stroke: var(--secondary-8);
+                stroke: white;
                 stroke-width: 3;
                 stroke-dasharray: 100;
                 stroke-dashoffset: 100;

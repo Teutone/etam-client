@@ -69,10 +69,6 @@
       @mouseenter="stopTimeout(message)"
       @mouseleave="startTimeout(message)"
     >
-      <div class="toaster__message">
-        <h4>{{ message.title }}</h4>
-        <p v-if="message.text">{{ message.text }}</p>
-      </div>
       <button
         @click="deleteMessage(index)"
         class="toaster__close"
@@ -83,6 +79,10 @@
         </svg>
         <span :class="iconMap[message.type]"></span>
       </button>
+      <div class="toaster__message">
+        <h4>{{ message.title }}</h4>
+        <p v-if="message.text">{{ message.text }}</p>
+      </div>
     </div>
   </transition-group>
 </template>
