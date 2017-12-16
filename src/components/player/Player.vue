@@ -74,7 +74,7 @@ export default {
       } else if (event.keyCode === 39) { // right arrow
         this.next();
       } else if (event.keyCode === 70) { // f
-        toggleFullscreen();
+        toggleFullScreen();
       } else if (event.keyCode === 77) { // m
         this.muted = !this.muted;
       } else if (event.keyCode === 73) { // i
