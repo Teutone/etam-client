@@ -1,5 +1,6 @@
 <script>
 import LnbNav from './components/LnbNav';
+import Toaster from './components/Toaster';
 
 export default {
   name: 'app',
