@@ -2,7 +2,7 @@
 import marked from 'marked';
 import { state } from '../../app';
 import Broadcaster from '../../broadcast';
-import { shuffle, secondsToString, toggleFullscreen } from '../../utility';
+import { shuffle, secondsToString, toggleFullScreen } from '../../utility';
 import VolumeBar from './VolumeBar';
 import TrackList from './TrackList';
 import YtWrap from './YtWrap';
