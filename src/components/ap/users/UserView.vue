@@ -1,6 +1,6 @@
 <script>
   import { state } from '../../../app';
-import UserForm from './UserForm';
+  import UserForm from './UserForm';
 
   export default {
     props: {

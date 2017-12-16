@@ -17,13 +17,10 @@ body {
     font-size: 1rem;
 }
 
-/* General styles */
-@mixin bg() {
-    background-color: #6fb4df;
-    background-image: url(https://images.unsplash.com/photo-1428189923803-e9801d464d76?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=40e43c26d48dfcaaf80670e1639c1af7);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+/* Variables */
+:root {
+    --error: #c52424;
+    --success: #249b17;
 }
 
 body {
@@ -103,6 +100,7 @@ p a {
 @import './components/player';
 @import './components/yt-wrap';
 @import './components/app';
+@import './components/toaster';
 @import './components/fb-connect';
 @import './components/config';
 @import './components/login';

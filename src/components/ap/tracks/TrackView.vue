@@ -1,6 +1,7 @@
 <script>
 import { getIdFromURL } from 'vue-youtube-embed';
 import { deleteTrack, publishTrack, claimTrack, state } from '../../../app';
+import Broadcaster from '../../../broadcast';
 import { buildMeta } from '../../../utility';
 import UserName from '../../UserName';
 import YtWrap from '../../player/YtWrap';
@@ -60,7 +61,12 @@ export default {
       }
 
       deleteTrack(this.track.id)
-        .catch(err => console.error(err));
+        .catch((err) => {
+          Broadcaster.emit('toaster', {
+            type: 'error',
+            title: err.toString(),
+          });
+        });
     },
     publish() {
       if (this.published) {
@@ -68,7 +74,18 @@ export default {
       }
 
       publishTrack(this.track.id, this.publishMessage)
-        .catch(err => console.error(err));
+        .then((track) => {
+          Broadcaster.emit('toaster', {
+            type: 'success',
+            title: `${track.title} published at episode ${track.episode}`,
+          });
+        })
+        .catch((err) => {
+          Broadcaster.emit('toaster', {
+            type: 'error',
+            title: err.toString(),
+          });
+        });
     },
   },
   updated() {

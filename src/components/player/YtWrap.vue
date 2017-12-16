@@ -46,7 +46,6 @@ export default {
     playing(ev) {
       this.unsetTimer();
       this.$emit('playing', ev);
-
       if (this.track.end === 0) {
         this.track.end = Math.floor(this.player.getDuration());
 

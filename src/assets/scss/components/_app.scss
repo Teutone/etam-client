@@ -1,3 +1,5 @@
+$app-padding: 30px;
+
 .app {
     max-width: 100%;
     width: 600px;
@@ -7,7 +9,7 @@
     position: relative;
     border-right: 4px solid white;
     transition: width 0.2s ease-out, height 0.2s ease-out;
-    padding: 50px 30px;
+    padding: 50px $app-padding;
     overflow: hidden;
 
     &:before {

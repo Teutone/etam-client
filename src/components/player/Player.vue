@@ -1,6 +1,7 @@
 <script>
 import marked from 'marked';
 import { state } from '../../app';
+import Broadcaster from '../../broadcast';
 import { shuffle, secondsToString, toggleFullscreen } from '../../utility';
 import VolumeBar from './VolumeBar';
 import TrackList from './TrackList';
@@ -85,6 +86,15 @@ export default {
       } else if (event.keyCode === 83) { // s
         this.shuffle = !this.shuffle;
       }
+    },
+
+    error() {
+      Broadcaster.emit('toaster', {
+        type: 'error',
+        title: `Couldn't play Ep. ${this.currentTrack.episode}: ${this.currentTrack.title} by ${this.currentTrack.artist}`,
+      });
+
+      this.next();
     },
   },
   subscriptions() {
@@ -186,6 +196,9 @@ export default {
     totalTimeString() {
       return secondsToString(this.duration);
     },
+    currentTrack() {
+      return this.playlist[this.index];
+    },
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.onKeyDown);
@@ -232,7 +245,7 @@ export default {
         @ping="currentTime = $event"
         @paused="status = 'paused'"
         @playing="playing"
-        @error="next"
+        @error="error"
         @ended="next"
         class="player__yt-wrap"
       ></yt-wrap>

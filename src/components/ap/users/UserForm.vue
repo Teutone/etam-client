@@ -1,5 +1,6 @@
 <script>
 import { state, addUser, updateUser } from '../../../app';
+import Broadcaster from '../../../broadcast';
 
 export default {
   props: {
@@ -21,7 +22,6 @@ export default {
       role: '',
       hosts: '',
     },
-    error: '',
   }),
   watch: {
     user() {
@@ -46,15 +46,33 @@ export default {
 
       if (this.user.id) {
         updateUser(user)
-          .then(() => this.$emit('saved'))
+          .then(() => {
+            this.$emit('saved');
+            Broadcaster.emit('toaster', {
+              type: 'success',
+              title: `User ${user.name} successfully saved`,
+            });
+          })
           .catch((err) => {
-            this.error = err.toString();
+            Broadcaster.emit('toaster', {
+              type: 'error',
+              title: err.toString(),
+            });
           });
       } else {
         addUser(user)
-          .then(() => this.$emit('saved'))
+          .then(() => {
+            this.$emit('saved');
+            Broadcaster.emit('toaster', {
+              type: 'success',
+              title: `User ${user.name} successfully added`,
+            });
+          })
           .catch((err) => {
-            this.error = err.toString();
+            Broadcaster.emit('toaster', {
+              type: 'error',
+              title: err.toString(),
+            });
           });
       }
     },
@@ -84,7 +102,6 @@ export default {
       </select>
       <input v-model="uUser.hosts" :placeholder="currUser.hosts.join(', ')" :class="{ active: uUser.hosts }" />
     </div>
-    <p v-if="error" v-html="error"></p>
     <div class="form-actions">
       <button type="submit">Save</button>
       <button @click.prevent="$emit('cancel')">Cancel</button>

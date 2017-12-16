@@ -108,6 +108,7 @@
       <h3>
         SEO config
         <button type="button" v-if="!editing" @click="editing = true">Edit</button>
+        <button type="button" v-if="editing" @click="editing = false">Cancel</button>
       </h3>
 
       <div class="config__field">

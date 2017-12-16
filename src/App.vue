@@ -5,6 +5,7 @@ export default {
   name: 'app',
   components: {
     LnbNav,
+    Toaster,
   },
   computed: {
     isTall() {
@@ -22,6 +23,7 @@ export default {
 
 <template>
   <main class="app" :class="{ 'app_tall': isTall }">
+    <toaster></toaster>
     <lnb-nav></lnb-nav>
     <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
       <router-view></router-view>

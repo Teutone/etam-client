@@ -1,0 +1,114 @@
+$toaster-padding: 15px;
+
+.toaster {
+    transition: all .1s ease-in;
+    display: flex;
+    padding: 10px $toaster-padding;
+    margin-bottom: 10px;
+
+    &:hover svg .outer {
+        display: none;
+    }
+
+    &_error {
+        background-color: var(--error);
+    }
+
+    &_success {
+        background-color: var(--success);
+    }
+
+    &__wrapper {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        z-index: 1500;
+        top: 15px;
+        margin-left: -1 * $toaster-padding;
+        width: calc(100% - (2 * (#{$app-padding} - #{$toaster-padding})));
+        max-height: 100%;
+    }
+
+    &__message {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        h4 {
+            margin: 0px;
+        }
+    }
+
+    &__type-icon {
+        font-size: 25px;
+        margin-right: 10px;
+    }
+
+    &__close {
+        width: 30px;
+        height: 30px;
+        align-self: flex-start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 15px;
+        color: var(--secondary-8);
+        font-size: 29px;
+        position: relative;
+
+        &:hover {
+            color: var(--secondary);
+            border-bottom-color: transparent;
+            transition: color 0.1s ease-out;
+        }
+
+        &_running {
+            svg .outer {
+                animation-play-state: running;
+                animation-name: fill-circle;
+                animation-duration: 3s;
+                animation-delay: 0s;
+                animation-iteration-count: 1;
+            }
+        }
+
+        > span {
+            width: 100%;
+        }
+
+        svg {
+            position: absolute;
+            margin-top: -1px;
+
+            .outer {
+                fill: transparent;
+                stroke: var(--secondary-8);
+                stroke-width: 3;
+                stroke-dasharray: 100;
+                stroke-dashoffset: 100;
+            }
+        }
+    }
+}
+
+/* List animations */
+
+.toaster-list-enter, 
+.toaster-list-leave-to {
+    opacity: 0;
+    transform: scale(95%, 90%);
+}
+
+/* Keyframes for the initial animation */
+@keyframes fill-circle {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 100;
+    }
+}
