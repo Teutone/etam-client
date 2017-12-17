@@ -15,10 +15,8 @@ pipeline:
     secrets:
       - source: lnb_ssh_key
         target: scp_key
-    source:
-      - dist/*
-    target:
-      - /home/lnb/lnb-server/static/eleventhirty.am
+    source: dist/*
+    target: /home/lnb/lnb-server/static/eleventhirty.am
     rm: true
     when:
       event: tag
