@@ -16,7 +16,7 @@ pipeline:
       - source: lnb_ssh_key
         target: scp_key
     source:
-      - dist
+      - dist/*
     target:
       - /home/lnb/lnb-server/static/eleventhirty.am
     rm: true
