@@ -12,8 +12,9 @@ pipeline:
     repo: etam/lnb-client
     host: eleventhirty.am
     username: lnb
-    key: ${LNB_SSH_KEY}
-    secrets: [ lnb_ssh_key ]
+    secrets:
+      - source: lnb_ssh_key
+        target: scp_key
     source:
       - dist
     target:
