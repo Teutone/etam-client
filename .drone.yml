@@ -21,5 +21,4 @@ pipeline:
     rm: true
     when:
       event: tag
-      branch: master
       status: success
