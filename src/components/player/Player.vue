@@ -130,7 +130,6 @@ export default {
       set(val) {
         this.player_ = val;
         this.volume = 100;
-        this.muted = true;
       },
     },
     muted: {
