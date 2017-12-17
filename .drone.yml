@@ -17,6 +17,7 @@ pipeline:
         target: scp_key
     source: dist/*
     target: /home/lnb/lnb-server/static/eleventhirty.am
+    strip_components: 1
     rm: true
     when:
       event: tag
