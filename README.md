@@ -1,8 +1,24 @@
 # lnb-client
 
-> Client for the latenight.blue server
+| [lnb-server](https://github.com/b12f/lnb-server)
+| [latenight.blue client](https://github.com/b12f/lnb-client)
+| **eleventhirty.am client**
+|
 
-## Build Setup
+This is the Vue.js based client-side application for [eleventhirty.am](https://eleventhirty.am/).
+
+## Production setup
+
+After building, place the contents of `dist/` into the server `themeDir` directory, inside a directory that is the theme name. For example, assuming `themeDir` is set to `/lnb-server/static/`:
+
+    /lnb-server
+        /static
+            /latenight.blue
+                - dist contents
+            /eleventhirty.am
+                - dist contents
+
+## Building
 
 ``` bash
 # install dependencies
